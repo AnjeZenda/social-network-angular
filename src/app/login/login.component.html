@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm!" (ngSubmit)="signIn()" class="container">
+  <div class="info">
+    <div class="info__title">
+      <h2>Вход</h2>
+    </div>
+    <div class="info__content">
+      <input class="info__input" placeholder="Email" formControlName="email" type="email"/>
+      <input class="info__input" placeholder="Password" formControlName="password" type="password"/>
+      <button class="info__btn" type="submit">Войти</button>
+    </div>
+    <div class="info__footer">Нет аккаунта?<a class="link" [routerLink]="['/register']">Зарегестрируйся</a></div>
+  </div>
+</form>

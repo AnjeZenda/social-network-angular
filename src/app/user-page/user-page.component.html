@@ -1,0 +1,56 @@
+<div *ngIf="user">
+  <header class="header">
+    <div class="container">
+      <div class="header__wrapper">
+        <a href="/feed" class="header__link">Feed</a>
+        <a [routerLink]="['/user/' + user.id]" class="header__link">Profile</a>
+        <a (click)="LoginService.logout()" class="header__link" style="cursor: pointer">Logout</a>
+        <a *ngIf="user.isAdmin" href="https://localhost:8443/admin" class="header__link">Admin</a>
+      </div>
+    </div>
+  </header>
+  <section class="profile">
+    <div class="container">
+      <div class="profile__wrapper">
+        <div class="profile__left">
+          <div class="profile__pic">
+            <div class="profile__img"></div>
+            <div class="profile__img_sm"></div>
+          </div>
+          <div class="profile__info">
+            <h3 class="profile__heading">Info</h3>
+            <p class="profile__text">
+              Birth date: {{user.birthDate}}
+            </p>
+          </div>
+          <div class="profile__actions">
+            <button class="profile__btn">Добавить друга</button>
+            <button class="profile__btn">Удалить друга</button>
+            <button class="profile__btn">Новый пост</button>
+            <button class="profile__btn">Редактировать пост</button>
+          </div>
+        </div>
+        <div class="profile__right">
+          <div class="profile__bar">
+            <h2 class="profile__name">
+              {{user.name}} <br> {{user.surname}}
+            </h2>
+            <div class="profile__btns">
+              <a href="/" class="profile__btn profile__edit">{{user.countFriends}} friends</a>
+              <a href="/" class="profile__btn profile__edit">Render</a>
+            </div>
+          </div>
+          <div class="profile__scroll">
+            <div class="profile__item" *ngFor="let n of news">
+              <div class="item__header">
+                <div class="item__title">{{n.title}}</div>
+                <div class="item__time">{{n.createdAt}}</div>
+              </div>
+              <div class="item__text">{{n.text}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

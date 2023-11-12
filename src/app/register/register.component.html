@@ -1,0 +1,16 @@
+<form class="container" [formGroup]="registerForm!" (ngSubmit)="onSubmit()">
+  <div class="info">
+    <div class="info__title">
+      <h2>Регистрация</h2>
+    </div>
+    <div class="info__content">
+      <input class="info__input" placeholder="Name" formControlName="name" type="text"/>
+      <input class="info__input" placeholder="Surname" formControlName="surname" type="text"/>
+      <input class="info__input" placeholder="Email" formControlName="email" type="email"/>
+      <input class="info__input" formControlName="birthDate" type="date" style="width: 100%"/>
+      <input class="info__input" placeholder="Password" formControlName="password" type="password"/>
+      <button class="info__btn" type="submit">Зарегистрироваться</button>
+    </div>
+    <div class="info__footer">Уже есть аккаунт?<a class="link" [routerLink]="['']">Войти</a></div>
+  </div>
+</form>
